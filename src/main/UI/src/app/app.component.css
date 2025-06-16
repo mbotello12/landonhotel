@@ -37,6 +37,11 @@ table {
   border-spacing: 0;
 }
 
+.price {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /* line 28, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.0.rc.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
