@@ -29,11 +29,17 @@ export class AppComponent implements OnInit{
   currentCheckOutVal!:string;
   messages!: Observable<any>;
   welcomes: string[] = [];
+  presentationTimes!: string;
 
 
 
     ngOnInit(){
 
+      this.getTimes().subscribe(
+        (data) => {
+          this.presentationTimes = data
+        }
+      )
 
       this.messages = this.httpClient.get<string[]>(this.baseURL + '/welcome', {responseType: "json"})
 
@@ -100,7 +106,9 @@ export class AppComponent implements OnInit{
 
 
     }
-
+    getTimes(): Observable<string> {
+      return  this.httpClient.get(this.baseURL + "/presentation", {responseType: "text"})
+    }
 
   }
 
